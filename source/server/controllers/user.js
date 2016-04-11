@@ -18,4 +18,4 @@ module.exports = {
     // DELETE /users/:uid
     delete: function (req, res) {
     }
-}
+};
