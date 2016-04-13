@@ -25,18 +25,19 @@ var generateToken = function (user) {
 
 module.exports = {
     validate: function (username, password, callback) {
-        User.findOne({username: username, password: password}, '-password', callback);
+        User.findOne({username: username, password: password}, '-password -__v', callback);
     },
     validateUser: function (username, callback) {
         User.findOne({username: username}, callback);
     },
     // POST /session/
     auth: function (req, res) {
-        var username = req.body.username || '';
-        var password = req.body.password || '';
+        req.checkBody('username', 'Field username is required').notEmpty();
+        req.checkBody('password', 'Field password is required').notEmpty();
 
-        if (username === '' || password === '') {
-            rHandlers.BadRequest(req, res, 'You must provide a valid username or password');
+        var errors = req.validationErrors();
+        if (errors) {
+            rHandlers.BadRequest(req, res, errors);
         } else {
             module.exports.validate(username, password, function (err, user) {
                 if (!err && user) {
@@ -46,8 +47,5 @@ module.exports = {
                 }
             });
         }
-    },
-    // DELETE /session/
-    destroy: function (req, res) {
     }
 };
