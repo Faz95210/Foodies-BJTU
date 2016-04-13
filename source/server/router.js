@@ -47,7 +47,11 @@ module.exports = {
 
         // Middleware to log requests.
         eRouter.use(function (req, res, next) {
-            log('Router', '{ ' + req.method + ' on ' + req.url + ' }');
+            var userMsg = 'Guest not logged';
+            if (req.session && req.session.user) {
+                userMsg = 'User: ' + req.session.user.username
+            }
+            log('Router', '{ ' + req.method + ' on ' + req.url + ' } -- [ ' + userMsg + ' ]');
             next();
         });
 

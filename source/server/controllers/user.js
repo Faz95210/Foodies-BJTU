@@ -23,7 +23,7 @@ module.exports = {
     get: function (req, res) {
         var uid = req.params.uid;
         if (req.session.user.role === 'admin' || req.session.user.id === uid) {
-            User.findOne({_id: uid}, '_id username email', function (err, user) {
+            User.findById(uid, '_id username email', function (err, user) {
                 if (!err && user) {
                     rHandlers.Ok(req, res, user);
                 } else {
