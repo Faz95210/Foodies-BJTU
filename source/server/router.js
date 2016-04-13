@@ -1,6 +1,5 @@
 
 // Dependencies
-
 var express         = require('express');
 var eRouter         = express.Router();
 
@@ -18,7 +17,6 @@ var initRoutes = function () {
 
     // SessionController Routes
     eRouter.route('/session').post(sessionController.auth);
-    eRouter.route('/session').delete(sessionController.destroy);
 
     // UserController Routes
     eRouter.route('/users').post(userController.create); // Not restricted, registration.

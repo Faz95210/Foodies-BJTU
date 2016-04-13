@@ -9,7 +9,8 @@ var UserSchema = new mongoose.Schema({
     password : {type: String, required: true},
     email    : {type: String, required: true, unique: true},
     // To complete according to foodie.
-    role     : String // customer / owner / admin ??
+    role     : {type: String, enum: 'customer owner'.split(' ')},
+    isAdmin  : Boolean
 });
 
 var User = mongoose.model('User', UserSchema);
@@ -21,19 +22,31 @@ User({
     username: 'admin',
     password: 'adminpwd',
     email   : 'admin@foodie.com',
-    role    : 'admin'
-}).save(function (err, obj) {
-    if (!err) log('UserModel', 'Default user `' + obj.username + '` created.');
+    role    : 'customer',
+    isAdmin : true
+}).save(function (err, user) {
+    if (!err && user) log('UserModel', 'Default user `' + user.username + '` created.');
 });
 
 // -- Should be deleted for production launch, account used only while developing the app.
 User({
-    username: 'test',
-    password: 'testpwd',
-    email   : 'test@foodie.com',
-    role    : 'user'
-}).save(function (err, obj) {
-    if (!err) log('UserModel', 'Default user `' + obj.username + '` created.');
+    username: 'customer',
+    password: 'customerpwd',
+    email   : 'customer@foodie.com',
+    role    : 'customer',
+    isAdmin : false
+}).save(function (err, user) {
+    if (!err && user) log('UserModel', 'Default user `' + user.username + '` created.');
+});
+
+User({
+    username: 'owner',
+    password: 'ownerpwd',
+    email   : 'owner@foodie.com',
+    role    : 'owner',
+    isAdmin : false
+}).save(function (err, user) {
+    if (!err && user) log('UserModel', 'Default user `' + user.username + '` created.');
 });
 
 module.exports = User;
