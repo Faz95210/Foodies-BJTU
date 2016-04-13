@@ -17,13 +17,14 @@ module.exports = function (req, res, next) {
                 if (decoded.exp <= Date.now()) {
                     rHandlers.BadRequest(req, res, 'Your token is expired');
                 } else {
-                    var dbUser = validateUser(decoded.user.username);
-                    if (dbUser) {
-                        req.session = {user: dbUser};
-                        next();
-                    } else {
-                        rHandlers.Unauthorized(req, res, 'Invalid user');
-                    }
+                    validateUser(decoded.user.username, function (err, user) {
+                        if (!err && user) {
+                            req.session = {user: user};
+                            next();
+                        } else {
+                            rHandlers.Unauthorized(req, res, 'Invalid user');
+                        }
+                    });
                 }
             } catch (err) {
                 rHandlers.InternalServerError(req, res, err);

@@ -4,31 +4,31 @@ var jwt         = require('jwt-simple');
 var rHandlers   = require('../rest-handlers');
 var log         = require('../log');
 
+var User        = require('../models/user');
+
 var expiresIn = function (nbDays) {
     var date = new Date();
     return date.setDate(date.getDate() + nbDays);
 };
 
-var generateToken = function (dbUser) {
+var generateToken = function (user) {
     var expires = expiresIn(2);
     return {
         expires: expires,
         token: jwt.encode({
             exp: expires,
-            user: dbUser
+            user: user
         }, require('../config/secret')()),
-        uid: dbUser.id // In case the user want to get its data.
+        uid: user.id // In case the user want to get its data.
     };
 };
 
 module.exports = {
-    validate: function (username, password) {
-        // Check mongoose
-        return {'username' : 'test', 'password' : 'test', id : 3}
+    validate: function (username, password, callback) {
+        User.findOne({username: username, password: password}, '-password', callback);
     },
-    validateUser: function (username) {
-        // Check username mongoose
-        return {'username' : 'test', 'password' : 'test', id : 3}
+    validateUser: function (username, callback) {
+        User.findOne({username: username}, callback);
     },
     // POST /session/
     auth: function (req, res) {
@@ -38,12 +38,13 @@ module.exports = {
         if (username === '' || password === '') {
             rHandlers.BadRequest(req, res, 'You must provide a valid username or password');
         } else {
-            var dbUser = module.exports.validate(username, password)
-            if (!dbUser) {
-                rHandlers.BadRequest(req, res, 'Invalid Credentials');
-            } else {
-                rHandlers.Ok(req, res, generateToken(dbUser));
-            }
+            module.exports.validate(username, password, function (err, user) {
+                if (!err && user) {
+                    rHandlers.Ok(req, res, generateToken(user));
+                } else {
+                    rHandlers.BadRequest(req, res, 'Invalid Credentials');
+                }
+            });
         }
     },
     // DELETE /session/
