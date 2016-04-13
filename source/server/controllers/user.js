@@ -55,9 +55,9 @@ module.exports = {
             errors = [];
             // Check if username or email already used.
             User.count({username: req.body.username}, function (err, count) {
-                if (count) errors.push(getError('username', 'This username is already existing', req.body.username));
+                if (count) errors.push({param: 'username', msg: 'This username is already existing', value: req.body.username});
                 User.count({email: req.body.email}, function (err, count) {
-                    if (count) errors.push(getError('email', 'This email is already existing', req.body.email));
+                    if (count) errors.push({param: 'email', msg: 'This email is already existing', value: req.body.email});
                     if (errors.length > 0) {
                         rHandlers.BadRequest(req, res, errors);
                     } else {
@@ -102,7 +102,7 @@ module.exports = {
                 User.findById(req.params.uid, function (err, user) {
                     User.count({email: req.body.email}, function (err, count) {
                         if (user.email !== req.body.email && count) {
-                            rHandlers.BadRequest(req, res, [getError('email', 'This email is already existing', req.body.email)])
+                            rHandlers.BadRequest(req, res, [{param: 'email', msg: 'This email is already existing', value: req.body.email}])
                         } else {
                             user.email = req.body.email;
                             user.password = req.body.password;
@@ -142,7 +142,3 @@ module.exports = {
         }
     }
 };
-
-var getError = function (param, msg, value) {
-    return { param: param, msg: msg, value: value};
-}
