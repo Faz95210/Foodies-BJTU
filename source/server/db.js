@@ -1,6 +1,6 @@
 
 var mongoose = require('mongoose'); // ORM
-var log      = require('./log.js');
+var log      = require('./log');
 
 var dbUri   = 'mongodb://localhost/foodieDB';
 
