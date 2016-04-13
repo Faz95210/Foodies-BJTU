@@ -39,7 +39,7 @@ module.exports = {
         if (errors) {
             rHandlers.BadRequest(req, res, errors);
         } else {
-            module.exports.validate(username, password, function (err, user) {
+            module.exports.validate(req.body.username, req.body.password, function (err, user) {
                 if (!err && user) {
                     rHandlers.Ok(req, res, generateToken(user));
                 } else {
