@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Foodies</string>
+
+    <string name="username_edit_text">Your username</string>
+    <string name="password_edit_text">Your password</string>
+    <string name="password2_edit_text">Your password again</string>
+    <string name="email_edit_text">Your email</string>
+
+    <string name="username">Username</string>
+    <string name="dish_name">Dish Name</string>
+    <string name="restaurant_name">Restaurant Name</string>
+    <string name="restaurant_address">Restaurant Address</string>
+
+
+    <string name="menu_button">Menu</string>
+    <string name="booking_button">Book it!</string>
+    <string name="login_button">Sign In</string>
+    <string name="signup_button">Sign Up</string>
+    <string name="back_button">Back</string>
+
+    <string name="restaurant_switch">Are you a restaurant?</string>
+</resources>
