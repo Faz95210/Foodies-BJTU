@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+    <Button
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/back_button"
+    android:layout_marginTop="15dp"
+    android:id="@+id/back"
+    android:layout_marginRight="5dp"
+    android:onClick="backOnClick" />
+    <EditText
+        android:layout_gravity="center"
+        android:inputType="text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/username"
+        android:hint="@string/username_edit_text"
+        android:layout_marginBottom="10dp"
+        />
+    <EditText
+        android:layout_gravity="center"
+        android:inputType="text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/email"
+        android:hint="@string/email_edit_text"
+        android:layout_marginBottom="10dp"
+    />
+    <EditText
+        android:layout_gravity="center"
+        android:inputType="textPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/password"
+        android:hint="@string/password_edit_text"
+        android:layout_marginBottom="10dp"
+        />
+
+    <EditText
+        android:layout_gravity="center_horizontal"
+        android:inputType="textPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/password2"
+        android:hint="@string/password2_edit_text"
+        android:layout_marginBottom="10dp" />
+
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/restaurant_switch"
+        android:id="@+id/restaurantSwitch"
+        android:layout_gravity="center_horizontal"
+        android:checked="false" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/signup_button"
+        android:layout_marginTop="15dp"
+        android:id="@+id/signUp"
+        android:onClick="signUpOnClick" />
+</LinearLayout>
