@@ -35,28 +35,35 @@ of those sections to manage the look and feel of the site. */
     height: 100%;
     padding-top: 150px;
     text-align: center;
-    background:url("../image-01.jpg") no-repeat center;
+    background:url("../assets/01.jpg") no-repeat center;
 	background-size : cover;
-	
 }
 
-.about-section {
+.geo-section {
     height: 100%;
+	background:url("../assets/Beijing-101514.jpg") no-repeat center;
     padding-top: 150px;
     text-align: center;
-    background: #eee;
+    background-size: cover;
 }
 
-.services-section {
+.menus-section {
     height: 100%;
     padding-top: 150px;
     text-align: center;
     background: #fff;
 }
 
-.contact-section {
+.book-section {
     height: 100%;
     padding-top: 150px;
     text-align: center;
     background: #eee;
+}
+
+.contact-section {
+    height: 100%;
+    padding-top: 150px;
+    text-align: center;
+    background: #fff;
 }
