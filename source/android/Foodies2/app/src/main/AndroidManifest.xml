@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.bedidi.fawzi.foodies">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name=".MyApplication"
@@ -25,7 +25,8 @@
         <activity android:name=".Booking" />
         <activity android:name=".Menu" />
         <activity android:name=".Suggestion" />
-        <activity android:name=".Itinerary"></activity>
+        <activity android:name=".Itinerary" />
+        <activity android:name=".HomePage"></activity>
     </application>
 
 </manifest>

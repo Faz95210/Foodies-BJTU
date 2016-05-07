@@ -82,7 +82,7 @@ public class Signup extends AppCompatActivity {
         if (passwordEditText.getText().toString().equals(password2EditText.getText().toString())){
             JsonObjectRequest jsonObjectRequest;
             try {
-                jsonObjectRequest = new JsonObjectRequest(Login.DATAURL, createJsonObject(), new Response.Listener<JSONObject>() {
+                jsonObjectRequest = new JsonObjectRequest(Login.DATAURL + "/users", createJsonObject(), new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
                         Log.d("adb", "[Signup.class][onErrorResponse]SignUp request responded : " + response);
