@@ -9,7 +9,7 @@ if(i == 2  ){
 }else{  
 document.querySelectorAll('.input_form_sign')[i].className = "input_form_sign d_block";
 }
-} 
+}
 
 setTimeout( function(){
 for(var d = 0; d < inputs.length ; d++  ) {
