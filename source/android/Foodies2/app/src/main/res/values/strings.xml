@@ -11,6 +11,14 @@
     <string name="restaurant_name">Restaurant Name</string>
     <string name="restaurant_address">Restaurant Address</string>
 
+    <string name="changePassword">Change Your Password</string>
+    <string name="changeEmail">Change Your Email Address</string>
+    <string name="account">Account</string>
+    <string name="email">E-mail</string>
+    <string name="age">Age</string>
+    <string name="name">Name</string>
+    <string name="firstname">First name</string>
+    <string name="signout">Sign Out</string>
 
     <string name="menu_button">Menu</string>
     <string name="booking_button">Book it!</string>

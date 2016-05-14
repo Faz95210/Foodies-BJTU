@@ -3,8 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    >
+    android:orientation="vertical">
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
@@ -19,7 +18,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/username"
             android:hint="@string/username_edit_text"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="20dp"
             />
         <EditText
             android:layout_gravity="center"
@@ -28,7 +27,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/password"
             android:hint="@string/password_edit_text"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="20dp"
             />
         <LinearLayout
             android:orientation="horizontal"
@@ -49,6 +48,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/signup_button"
                 android:id="@+id/signUp"
+                android:layout_marginTop="15dp"
                 android:onClick="signUpOnClick" />
         </LinearLayout>
 
