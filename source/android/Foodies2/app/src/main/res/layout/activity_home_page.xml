@@ -89,39 +89,46 @@
 
     </LinearLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="@string/account"
-        android:layout_weight="0.07" />
-
     <LinearLayout
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.07">
+        android:id="@+id/account">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="@string/email"
-            android:id="@+id/email" />
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/account"
+            android:layout_weight="0.07" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.07">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/email"
+                android:id="@+id/email" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/changeEmail"
+                android:id="@+id/editEmail" />
+        </LinearLayout>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/changeEmail"
-            android:id="@+id/editEmail" />
+            android:text="@string/changePassword"
+            android:id="@+id/editPassword"
+            android:layout_weight="0.07" />
     </LinearLayout>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/changePassword"
-        android:id="@+id/editPassword"
-        android:layout_weight="0.07" />
 
     <ListView
         android:layout_width="match_parent"

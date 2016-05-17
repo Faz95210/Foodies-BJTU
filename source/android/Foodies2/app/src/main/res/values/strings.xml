@@ -25,6 +25,12 @@
     <string name="login_button">Sign In</string>
     <string name="signup_button">Sign Up</string>
     <string name="back_button">Back</string>
+    <string name="send">Send</string>
+    <string name="cancel">Cancel</string>
+    <string name="birthdate">Birthdate DD/MM/YEAR</string>
 
     <string name="restaurant_switch">Are you a restaurant?</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
 </resources>
