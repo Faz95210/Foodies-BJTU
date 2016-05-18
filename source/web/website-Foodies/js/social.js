@@ -13,7 +13,7 @@ $(document).ready(function() {
         }, 1000);
         
      $('.icon').fadeOut();
-     $(this).html("<i class = 'icon fa fa-times' style='display: none'> </i>");
+     $(this).html("<i class = 'icon fak fa-times' style='display: none'> </i>");
      $('.icon').fadeIn();
         
         open = true;
@@ -30,7 +30,7 @@ $(document).ready(function() {
       }, 300);
       
     $('.icon').fadeOut();
-     $(this).html("<i class = 'icon fa fa-bars' style='display: none'> </i>");
+     $(this).html("<i class = 'icon fak fa-bars' style='display: none'> </i>");
      $('.icon').fadeIn();
       
       open = false;

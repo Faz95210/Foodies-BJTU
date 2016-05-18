@@ -8,6 +8,7 @@
 <script src="js/js-login.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/TweenMax.min.js"></script>
 
+
 </head>
 <body>
 
@@ -579,7 +580,7 @@
 <div class="shadow"></div>
   <div class="cont_centrar">
   <div class="cont_login">
-    <form action="">
+    <form action="" name="form_sign">
     <div class="cont_tabs_login">
       <ul class='ul_tabs'>
         <li class="active"><a href="#" onclick="sign_in()">SIGN IN</a>
@@ -591,18 +592,17 @@
       </div>
 	  
   <div class="cont_text_inputs">
-
   <div class="switch">
-    <input type="radio" class="switch-input" name="view" value="week" id="week" checked>
-    <label for="week" class="switch-label switch-label-off">Customers</label>
-    <input type="radio" class="switch-input" name="view" value="month" id="month">
-    <label for="month" class="switch-label switch-label-on">Restaurateurs</label>
+    <input type="radio" class="switch-input" name="view" value="customer" id="custom" checked>
+    <label for="custom" class="switch-label switch-label-off" OnClick="role_specification('customer')">Customer</label>
+    <input type="radio" class="switch-input" name="view" value="owner" id="resto">
+    <label for="resto" class="switch-label switch-label-on" OnClick="role_specification('owner')">Owner</label>
     <span class="switch-selection"></span>
   </div>
 
-      <input type="text" class="input_form_sign " placeholder="NAME" name="name_us" />
+      <input type="text" class="input_form_sign d_block active_inp" placeholder="NAME" name="name_us" />
     
-    <input type="text" class="input_form_sign d_block active_inp" placeholder="EMAIL" name="emauil_us" />
+    <input type="text" class="input_form_sign " placeholder="EMAIL" name="emauil_us" />
 
     <input type="password" class="input_form_sign d_block active_inp" placeholder="PASSWORD" name="pass_us" />  
    <input type="password" class="input_form_sign" placeholder="CONFIRM PASSWORD" name="conf_pass_us" />
@@ -615,7 +615,7 @@
     </div>
       </div>
 <div class="cont_btn">
-     <button class="btn_sign">SIGN IN</button>
+     <button id="sign" class="btn_sign" onClick="connexion_api_sign_in()">SIGN IN</button>
       
       </div>
       
