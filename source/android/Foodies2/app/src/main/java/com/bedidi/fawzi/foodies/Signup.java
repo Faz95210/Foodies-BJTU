@@ -62,7 +62,7 @@ public class Signup extends AppCompatActivity {
         final boolean isRestaurant = roleSwitch.isChecked();
         String role;
         if (isRestaurant){
-            role = "restaurant";
+            role = "owner";
         } else{
             role = "customer";
         }

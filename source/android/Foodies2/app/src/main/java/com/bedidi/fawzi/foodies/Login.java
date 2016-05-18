@@ -23,6 +23,7 @@ import org.json.JSONObject;
 public class Login extends AppCompatActivity {
 
     public static final String USERNAME = "usernameProfile";
+    public static final String ROLE = "role";
     public static final String DATAURL = "http://10.0.2.2:8080/api";
     private EditText usernameText;
     private EditText passwordText;
@@ -62,6 +63,11 @@ public class Login extends AppCompatActivity {
         } catch (JSONException e) {
             sharedPreferences.edit().putString("uid", "Can't get uid from JSON").apply();
             Log.d("adb", "Can't get \"uid\" from JSONResponse. error : " + e.getMessage());
+        }try {
+            sharedPreferences.edit().putString("role", response.getString("role")).apply();
+        } catch (JSONException e) {
+            sharedPreferences.edit().putString("role", "Can't get uid from JSON").apply();
+            Log.d("adb", "Can't get \"role\" from JSONResponse. error : " + e.getMessage());
         }
     }
 
