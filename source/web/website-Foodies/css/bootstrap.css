@@ -6768,7 +6768,7 @@ button.close {
 }
 /*# sourceMappingURL=bootstrap.css.map */*
 .circle-bg {
-  background-color: #FF3F80;
+  background-color: black;
   border-radius: 50%;
   cursor: pointer;
   display: table;
@@ -6785,7 +6785,7 @@ button.close {
 }
 
 .icon {
-  color: white;
+  color: #02FF00;
   display: table-cell;
   font-size: 40px;
   text-align: center;
@@ -6875,3 +6875,10 @@ button.close {
     /* -webkit-font-smoothing: antialiased; */
     -moz-osx-font-smoothing: grayscale;
 }
+
+.obelix {
+		margin-top: 0px;
+		margin-right: 0px;
+		margin-bottom: 10px;
+		margin-left: 0px;
+	}
