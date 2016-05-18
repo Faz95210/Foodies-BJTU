@@ -51,14 +51,16 @@ of those sections to manage the look and feel of the site. */
     height: 100%;
     padding-top: 150px;
     text-align: center;
-    background: #fff;
+	background:url("../assets/Menu.jpg") no-repeat center;
+	background-size : cover;	
 }
 
 .book-section {
     height: 100%;
     padding-top: 150px;
     text-align: center;
-    background: #eee;
+	background:url("../assets/BookSeat.jpg") no-repeat center;
+	background-size : cover;	
 }
 
 .contact-section {

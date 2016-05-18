@@ -28,7 +28,7 @@ for(var d = 0; d < inputs.length ; d++  ) {
  document.querySelector('.link_forgot_pass').style.opacity = "0";
    document.querySelector('.link_forgot_pass').style.top = "-5px";
    document.querySelector('.btn_sign').innerHTML = "SIGN UP";
-  document.getElementById('sign').onclick = function(){connexion_api_sign_up();}
+  document.getElementById('sign').onclick = function() {connexion_api_sign_up();}
   setTimeout(function(){
 
  document.querySelector('.terms_and_cons').style.opacity = "1";
@@ -117,31 +117,26 @@ window.onload =function(){
 
 function connexion_api_sign_in()
 {
-console.log("connexion api sign start");
 
 var usern = document.forms["form_sign"].elements["name_us"].value;
 var pass = document.forms["form_sign"].elements["pass_us"].value;
 
-xhr = new XMLHttpRequest();
-var url = "http://localhost:8080/api/session";
-xhr.open("POST", url, true);
-xhr.setRequestHeader("Content-type", "application/json");
-
-var data = JSON.stringify({"username":usern,"password":pass});
-
-xhr.onreadystatechange = function () {
- if (xhr.readyState == 4 && xhr.status == 200) {
-        var json = JSON.parse(xhr.responseText);
-        console.log(json);
-		window.location.assign("../website-Foodies/index.html");
-    }
-else if(xhr.readyState === 4 && xhr.status !== 200) 
+$.ajax({
+    type: "POST",
+    url: "http://localhost:8080/api/session",
+    dataType: 'json',
+	contentType: "application/json",
+	data: JSON.stringify({"username":usern, "password":pass}),
+    async: true,
+    success : function(data) {
+        console.log(data);
+        window.location.assign("../website-Foodies/index.html");
+    },
+    error: function (data)
     {
-        alert("Username or Password Incorrect! Try again !" + xhr.statusText);
+        alert("Username or Password incorrect ! Try again !");
     }
-};
-xhr.send(data);
-console.log("fin de fonction");
+});
 }
 
 function connexion_api_sign_up()
@@ -151,17 +146,20 @@ var email = document.forms["form_sign"].elements["emauil_us"].value;
 var pass = document.forms["form_sign"].elements["pass_us"].value;
 var specification = yolo;
 
-xhr = new XMLHttpRequest();
-var url = "http://localhost:8080/api/users";
-xhr.open("POST", url, true);
-xhr.setRequestHeader("Content-type", "application/json");
-
-xhr.onreadystatechange = function () {
- if (xhr.readyState == 4 && xhr.status == 200) {
-        var json = JSON.parse(xhr.responseText);
-        console.log(json);
+$.ajax({
+    type: "POST",
+    url: "http://localhost:8080/api/users",
+    dataType: 'json',
+	contentType: "application/json",
+	data: JSON.stringify({"username":usern, "email":email, "password":pass, "role":specification}),
+    async: true,
+    success : function(data) {
+        console.log(data);
+        window.location.reload();
+    },
+    error: function (data)
+    {
+        alert("Error in sign up ! Try again !");
     }
-};
-var data = JSON.stringify({"username":usern, "email":email, "password":pass, "role":specification});
-xhr.send(data);
+});
 }
